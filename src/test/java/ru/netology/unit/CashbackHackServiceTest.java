@@ -5,11 +5,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CashbackHackServiceTest {
-    CashbackHackService service = new CashbackHackService();
-    
+    private  CashbackHackService service = new CashbackHackService();
     @Test
     void shouldReturnBonusIfAmountMoreThan1000() {
-
         int amount =1100;
 
         int actual = service.calculateBonus(amount);
