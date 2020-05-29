@@ -1,51 +1,51 @@
 package ru.netology.unit;
+
 import ru.netology.unit.CashbackHackService;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.testng.Assert;
 
-class CashbackHackServiceTest {
+public class CashbackHackServiceTest {
+
+    CashbackHackService service = new CashbackHackService();
+
     @Test
-    void shouldReturnBonusIfAmountMoreThan1000() {
-        CashbackHackService service = new CashbackHackService();
-        int amount =1100;
+    public void shouldReturnBonusIfAmountMoreThan1000() {
+        int amount = 1100;
 
         int actual = service.calculateBonus(amount);
-        int expected = amount/service.getBoundary()*service.getCashBack();
-
-        assertEquals(expected, actual);
-    }
-@Test
-    void shouldReturnMaxBonusIfAmountMoreThanMaximum() {
-        CashbackHackService service = new CashbackHackService();
-        int amount =10_500;
-
-        int actual = service.calculateBonus(amount);
-        int expected = service.getMaximumAmount()/service.getBoundary()*service.getCashBack();
-
-        assertEquals(expected, actual);
+        int expected = amount / service.getBoundary() * service.getCashBack();
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
-    void shouldReturnZeroIfAmountLowerThan1000() {
-        CashbackHackService service = new CashbackHackService();
+    public void shouldReturnMaxBonusIfAmountMoreThanMaximum() {
+        int amount = 10_500;
+
+        int actual = service.calculateBonus(amount);
+        int expected = service.getMaximumAmount() / service.getBoundary() * service.getCashBack();
+        Assert.assertEquals(actual, expected);
+    }
+
+    @Test
+    public void shouldReturnZeroIfAmountLowerThan1000() {
         int amount = 600;
 
         int actual = service.calculateBonus(amount);
         int expected = 0;
-
-        assertEquals(expected, actual);
+        Assert.assertEquals(actual, expected);
     }
 
     @Test
-    void shouldOfferBuySomethingForMaxBonus() {
-        CashbackHackService service = new CashbackHackService();
+    public void shouldOfferBuySomethingForMaxBonus() {
+
         int amount = 1900;
 
         int actual = service.calculateBonus(amount);
-        int expected =amount/service.getBoundary()*service.getCashBack();;
-
-        assertEquals(expected, actual);
+        int expected = amount / service.getBoundary() * service.getCashBack();
+        ;
+        Assert.assertEquals(actual, expected);
     }
 
 
