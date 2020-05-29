@@ -9,13 +9,23 @@ public class CashbackHackServiceTest {
     CashbackHackService service = new CashbackHackService();
 
     @Test
-    public void shouldReturnBonusIfAmountMoreThan1000() {
+    public void shouldReturnBonusIfAmountEqualTo1000() {
 
-        int amount = 1100;
+        int amount = 1000;
         int actual = service.calculateBonus(amount);
         int expected = amount / service.getBoundary() * service.getCashBack();
         Assert.assertEquals(actual, expected);
     }
+
+    @Test
+    public void shouldReturnBonusIfAmountMoreTo1000() {
+
+        int amount = 1700;
+        int actual = service.calculateBonus(amount);
+        int expected = amount / service.getBoundary() * service.getCashBack();
+        Assert.assertEquals(actual, expected);
+    }
+
 
     @Test
     public void shouldReturnMaxBonusIfAmountMoreThanMaximum() {
