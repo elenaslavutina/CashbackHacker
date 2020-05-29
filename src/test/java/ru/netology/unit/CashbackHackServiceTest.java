@@ -1,19 +1,16 @@
 package ru.netology.unit;
 
 import ru.netology.unit.CashbackHackService;
-//import org.junit.jupiter.api.Test;
 import org.testng.annotations.Test;
-
 import org.testng.Assert;
 
 public class CashbackHackServiceTest {
-
     CashbackHackService service = new CashbackHackService();
 
     @Test
     public void shouldReturnBonusIfAmountMoreThan1000() {
-        int amount = 1100;
 
+        int amount = 1100;
         int actual = service.calculateBonus(amount);
         int expected = amount / service.getBoundary() * service.getCashBack();
         Assert.assertEquals(actual, expected);
@@ -21,8 +18,8 @@ public class CashbackHackServiceTest {
 
     @Test
     public void shouldReturnMaxBonusIfAmountMoreThanMaximum() {
-        int amount = 10_500;
 
+        int amount = 10_500;
         int actual = service.calculateBonus(amount);
         int expected = service.getMaximumAmount() / service.getBoundary() * service.getCashBack();
         Assert.assertEquals(actual, expected);
@@ -30,8 +27,8 @@ public class CashbackHackServiceTest {
 
     @Test
     public void shouldReturnZeroIfAmountLowerThan1000() {
-        int amount = 600;
 
+        int amount = 600;
         int actual = service.calculateBonus(amount);
         int expected = 0;
         Assert.assertEquals(actual, expected);
@@ -41,12 +38,9 @@ public class CashbackHackServiceTest {
     public void shouldOfferBuySomethingForMaxBonus() {
 
         int amount = 1900;
-
         int actual = service.calculateBonus(amount);
         int expected = amount / service.getBoundary() * service.getCashBack();
-        ;
-        Assert.assertEquals(actual, expected);
+         Assert.assertEquals(actual, expected);
     }
-
 
 }

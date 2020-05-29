@@ -1,5 +1,7 @@
 package ru.netology.unit;
 
+import jdk.internal.reflect.Reflection;
+
 public class CashbackHackService {
     private final int boundary = 1000;//минимальная нижняя граница начисления кэшбэка
     private int cashBack = 10; //кэшбэк в рублях с каждой тысячи
@@ -10,7 +12,6 @@ public class CashbackHackService {
 
 
     public int calculateBonus(int amount) {
-
 
         if (remain(amount) <= 200) {
             System.out.println("May be you buy something else to " + remain(amount) + "rub to get max bonus");
