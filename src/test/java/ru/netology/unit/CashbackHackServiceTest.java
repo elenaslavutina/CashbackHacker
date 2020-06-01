@@ -1,14 +1,16 @@
 package ru.netology.unit;
+
 import ru.netology.unit.CashbackHackService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CashbackHackServiceTest {
-    private  CashbackHackService service = new CashbackHackService();
+    private CashbackHackService service = new CashbackHackService();
+
     @Test
     void shouldReturnBonusIfAmountMoreThan1000() {
-        int amount =1100;
+        int amount = 1100;
 
         int actualDop = service.remain(amount);
         int expectedDop = 900;
@@ -31,7 +33,8 @@ class CashbackHackServiceTest {
         int amount = 900;
 
         int actualDop = service.remain(amount);
-        int expectedDop =100;;
+        int expectedDop = 100;
+        ;
 
         assertEquals(expectedDop, actualDop);
     }
