@@ -10,39 +10,30 @@ class CashbackHackServiceTest {
     void shouldReturnBonusIfAmountMoreThan1000() {
         int amount =1100;
 
-        int actual = service.calculateBonus(amount);
-        int expected = amount/service.getBoundary()*service.getCashBack();
+        int actualDop = service.remain(amount);
+        int expectedDop = 900;
 
-        assertEquals(expected, actual);
-    }
-@Test
-    void shouldReturnMaxBonusIfAmountMoreThanMaximum() {
-        int amount =10_500;
-
-        int actual = service.calculateBonus(amount);
-        int expected = service.getMaximumAmount()/service.getBoundary()*service.getCashBack();
-
-        assertEquals(expected, actual);
+        assertEquals(expectedDop, actualDop);
     }
 
     @Test
-    void shouldReturnZeroIfAmountLowerThan1000() {
-        int amount = 600;
+    void shouldReturnZeroIf1000() {
+        int amount = 1000;
 
-        int actual = service.calculateBonus(amount);
-        int expected = 0;
+        int actualDop = service.remain(amount);
+        int expectedDop = 0;
 
-        assertEquals(expected, actual);
+        assertEquals(expectedDop, actualDop);
     }
 
     @Test
     void shouldOfferBuySomethingForMaxBonus() {
-        int amount = 1900;
+        int amount = 900;
 
-        int actual = service.calculateBonus(amount);
-        int expected =amount/service.getBoundary()*service.getCashBack();;
+        int actualDop = service.remain(amount);
+        int expectedDop =100;;
 
-        assertEquals(expected, actual);
+        assertEquals(expectedDop, actualDop);
     }
 
 
