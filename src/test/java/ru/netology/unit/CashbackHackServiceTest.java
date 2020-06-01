@@ -1,6 +1,4 @@
 package ru.netology.unit;
-
-import ru.netology.unit.CashbackHackService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
