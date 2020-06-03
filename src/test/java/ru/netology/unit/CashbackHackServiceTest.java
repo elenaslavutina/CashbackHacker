@@ -14,7 +14,7 @@ public class CashbackHackServiceTest {
         int actualDop = service.remain(amount);
         int expectedDop = 900;
 
-        assertEquals (expectedDop, actualDop);
+        assertEquals (actualDop,expectedDop);
     }
 
     @Test
@@ -24,7 +24,7 @@ public class CashbackHackServiceTest {
         int actualDop = service.remain(amount);
         int expectedDop = 0;
 
-        assertEquals(expectedDop, actualDop);
+        assertEquals(actualDop, expectedDop);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class CashbackHackServiceTest {
         int actualDop = service.remain(amount);
         int expectedDop = 100;
 
-        assertEquals(expectedDop, actualDop);
+        assertEquals(actualDop, expectedDop);
     }
 
 
